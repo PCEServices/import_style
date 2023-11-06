@@ -49,6 +49,7 @@ from qgis.PyQt.QtWidgets import QProgressBar
 from qgis.PyQt.QtCore import *
 from qgis.core import QgsApplication
 
+
 class StyleImport:
     """QGIS Plugin Implementation."""
 
@@ -78,7 +79,7 @@ class StyleImport:
 
         # Declare instance attributes
         self.actions = []
-        self.menu = self.tr(u'PCE Services')
+        self.menu = self.tr(u'&Pce Services')
 
         # Check if plugin was started the first time in current QGIS session
         # Must be set in initGui() to survive plugin reloads
@@ -105,16 +106,16 @@ class StyleImport:
         return os.path.join(basepath, name)
 
     def add_action(
-        self,
-        icon_path,
-        text,
-        callback,
-        enabled_flag=True,
-        add_to_menu=True,
-        add_to_toolbar=True,
-        status_tip=None,
-        whats_this=None,
-        parent=None):
+            self,
+            icon_path,
+            text,
+            callback,
+            enabled_flag=True,
+            add_to_menu=True,
+            add_to_toolbar=True,
+            status_tip=None,
+            whats_this=None,
+            parent=None):
         """Add a toolbar icon to the toolbar.
 
         :param icon_path: Path to the icon for this action. Can be a resource
@@ -191,7 +192,6 @@ class StyleImport:
         # will be set False in run()
         self.first_start = True
 
-
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
         for action in self.actions:
@@ -199,7 +199,6 @@ class StyleImport:
                 self.tr(u'&Style Import'),
                 action)
             self.iface.removeToolBarIcon(action)
-
 
     def run(self):
         """Run method that performs all the real work"""
@@ -215,7 +214,3 @@ class StyleImport:
         # Run the dialog event loop
         result = self.dlg.exec_()
         # See if OK was pressed
-        
-
-        
-        
